@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70D3B551985B45DFAF281EB6 /* libPods-NetworkLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D781ACA92ECB465A84559FDD /* libPods-NetworkLib.a */; };
 		8E78F56E18A68F5F0014BC5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E78F56D18A68F5F0014BC5B /* Foundation.framework */; };
 		8E78F57318A68F5F0014BC5B /* NetworkLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E78F57218A68F5F0014BC5B /* NetworkLib.h */; };
 		8E78F57518A68F5F0014BC5B /* NetworkLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E78F57418A68F5F0014BC5B /* NetworkLib.m */; };
@@ -16,6 +17,7 @@
 		8E78F58218A68F5F0014BC5B /* libNetworkLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E78F56A18A68F5F0014BC5B /* libNetworkLib.a */; };
 		8E78F58818A68F5F0014BC5B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E78F58618A68F5F0014BC5B /* InfoPlist.strings */; };
 		8E78F58A18A68F5F0014BC5B /* NetworkLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E78F58918A68F5F0014BC5B /* NetworkLibTests.m */; };
+		8E78F59418A692BF0014BC5B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E78F59318A692BF0014BC5B /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		8E78F58518A68F5F0014BC5B /* NetworkLibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetworkLibTests-Info.plist"; sourceTree = "<group>"; };
 		8E78F58718A68F5F0014BC5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E78F58918A68F5F0014BC5B /* NetworkLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkLibTests.m; sourceTree = "<group>"; };
+		8E78F59318A692BF0014BC5B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D781ACA92ECB465A84559FDD /* libPods-NetworkLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetworkLib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE5F3C3A183E4296ACC01BC4 /* Pods-NetworkLib.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkLib.xcconfig"; path = "Pods/Pods-NetworkLib.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E78F59418A692BF0014BC5B /* SystemConfiguration.framework in Frameworks */,
 				8E78F56E18A68F5F0014BC5B /* Foundation.framework in Frameworks */,
+				70D3B551985B45DFAF281EB6 /* libPods-NetworkLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +92,7 @@
 				8E78F58318A68F5F0014BC5B /* NetworkLibTests */,
 				8E78F56C18A68F5F0014BC5B /* Frameworks */,
 				8E78F56B18A68F5F0014BC5B /* Products */,
+				EE5F3C3A183E4296ACC01BC4 /* Pods-NetworkLib.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,9 +108,11 @@
 		8E78F56C18A68F5F0014BC5B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E78F59318A692BF0014BC5B /* SystemConfiguration.framework */,
 				8E78F56D18A68F5F0014BC5B /* Foundation.framework */,
 				8E78F57B18A68F5F0014BC5B /* XCTest.framework */,
 				8E78F57E18A68F5F0014BC5B /* UIKit.framework */,
+				D781ACA92ECB465A84559FDD /* libPods-NetworkLib.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E78F58D18A68F5F0014BC5B /* Build configuration list for PBXNativeTarget "NetworkLib" */;
 			buildPhases = (
+				177DD7A50BA541589EDAE990 /* Check Pods Manifest.lock */,
 				8E78F56618A68F5F0014BC5B /* Sources */,
 				8E78F56718A68F5F0014BC5B /* Frameworks */,
 				8E78F56818A68F5F0014BC5B /* CopyFiles */,
+				0C57EFA9DB4B4514A749AA47 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,6 +230,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C57EFA9DB4B4514A749AA47 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-NetworkLib-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		177DD7A50BA541589EDAE990 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E78F56618A68F5F0014BC5B /* Sources */ = {
@@ -330,6 +375,7 @@
 		};
 		8E78F58E18A68F5F0014BC5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE5F3C3A183E4296ACC01BC4 /* Pods-NetworkLib.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/NetworkLib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -342,6 +388,7 @@
 		};
 		8E78F58F18A68F5F0014BC5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE5F3C3A183E4296ACC01BC4 /* Pods-NetworkLib.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/NetworkLib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -354,6 +401,7 @@
 		};
 		8E78F59118A68F5F0014BC5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE5F3C3A183E4296ACC01BC4 /* Pods-NetworkLib.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -409,6 +457,7 @@
 				8E78F58F18A68F5F0014BC5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E78F59018A68F5F0014BC5B /* Build configuration list for PBXNativeTarget "NetworkLibTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +466,7 @@
 				8E78F59218A68F5F0014BC5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

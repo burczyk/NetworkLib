@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AFNetworking.h"
+
 @interface NetworkLib : NSObject
+
+- (void)getGithubReposForUser:(NSString*)user withSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 @end

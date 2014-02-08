@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "NetworkLib.h"
 
 @interface NetworkLibTests : XCTestCase
 
@@ -14,21 +15,49 @@
 
 @implementation NetworkLibTests
 
-- (void)setUp
+- (void)testGetReposForBurczyk
 {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    __block id JSON;
+    
+    hxRunInMainLoop(^(BOOL *done) {
+        NetworkLib *nl = [[NetworkLib alloc] init];
+        [nl getGithubReposForUser:@"burczyk" withSuccess:^(id responseObject) {
+            NSLog(@"Response: %@", responseObject);
+            JSON = responseObject;
+            *done = YES;
+        } failure:^(NSError *error) {
+            *done = YES;
+        }];
+    });
+    
+    XCTAssertNotNil(JSON, @"");
 }
 
-- (void)tearDown
+- (void)testGetRepoForNotExistingUser
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+    __block id JSON;
+    
+    hxRunInMainLoop(^(BOOL *done) {
+        NetworkLib *nl = [[NetworkLib alloc] init];
+        [nl getGithubReposForUser:@"burczyk1234567890" withSuccess:^(id responseObject) {
+            NSLog(@"Response: %@", responseObject);
+            JSON = responseObject;
+            *done = YES;
+        } failure:^(NSError *error) {
+            *done = YES;
+        }];
+    });
+    
+    XCTAssertNil(JSON, @"");
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+// Wrapper to test async methods: http://stackoverflow.com/questions/2162213/how-to-unit-test-asynchronous-apis
+static inline void hxRunInMainLoop(void(^block)(BOOL *done)) {
+    __block BOOL done = NO;
+    block(&done);
+    while (!done) {
+        [[NSRunLoop mainRunLoop] runUntilDate: [NSDate dateWithTimeIntervalSinceNow:.1]];
+    }
 }
 
 @end
