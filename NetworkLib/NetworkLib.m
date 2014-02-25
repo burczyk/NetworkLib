@@ -7,6 +7,7 @@
 //
 
 #import "NetworkLib.h"
+#import "AFNetworking.h"
 
 @implementation NetworkLib
 

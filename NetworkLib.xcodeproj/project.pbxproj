@@ -6,6 +6,21 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		8EB1833B18BBDC50001CCA94 /* Aggregate Lib */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8EB1833E18BBDC50001CCA94 /* Build configuration list for PBXAggregateTarget "Aggregate Lib" */;
+			buildPhases = (
+				8EB1833F18BBDC7B001CCA94 /* ShellScript */,
+				8EB1834018BBDD02001CCA94 /* CopyFiles */,
+			);
+			dependencies = (
+			);
+			name = "Aggregate Lib";
+			productName = "Aggregate Lib";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		70D3B551985B45DFAF281EB6 /* libPods-NetworkLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D781ACA92ECB465A84559FDD /* libPods-NetworkLib.a */; };
 		8E78F56E18A68F5F0014BC5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E78F56D18A68F5F0014BC5B /* Foundation.framework */; };
@@ -18,6 +33,7 @@
 		8E78F58818A68F5F0014BC5B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E78F58618A68F5F0014BC5B /* InfoPlist.strings */; };
 		8E78F58A18A68F5F0014BC5B /* NetworkLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E78F58918A68F5F0014BC5B /* NetworkLibTests.m */; };
 		8E78F59418A692BF0014BC5B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E78F59318A692BF0014BC5B /* SystemConfiguration.framework */; };
+		8EB1834118BBDD0B001CCA94 /* NetworkLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E78F57218A68F5F0014BC5B /* NetworkLib.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +54,16 @@
 			dstSubfolderSpec = 16;
 			files = (
 				8E78F57318A68F5F0014BC5B /* NetworkLib.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8EB1834018BBDD02001CCA94 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${TARGET_BUILD_DIR}/../NetworkLib";
+			dstSubfolderSpec = 0;
+			files = (
+				8EB1834118BBDD0B001CCA94 /* NetworkLib.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +242,7 @@
 			targets = (
 				8E78F56918A68F5F0014BC5B /* NetworkLib */,
 				8E78F57918A68F5F0014BC5B /* NetworkLibTests */,
+				8EB1833B18BBDC50001CCA94 /* Aggregate Lib */,
 			);
 		};
 /* End PBXProject section */
@@ -261,6 +288,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		8EB1833F18BBDC7B001CCA94 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcodebuild -workspace NetworkLib.xcworkspace -scheme NetworkLib -sdk iphonesimulator -configuration Debug\nxcodebuild -workspace NetworkLib.xcworkspace -scheme NetworkLib -sdk iphoneos -configuration Debug\n\n# make a new output folder\nmkdir -p ${TARGET_BUILD_DIR}/../NetworkLib\n\n# combine lib files for various platforms into one\nlipo -create \"${TARGET_BUILD_DIR}/../Debug-iphoneos/libNetworkLib.a\" \"${TARGET_BUILD_DIR}/../Debug-iphonesimulator/libNetworkLib.a\" -output \"${TARGET_BUILD_DIR}/../NetworkLib/libNetworkLib-debug-${CURRENT_PROJECT_VERSION}.a\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -438,6 +478,22 @@
 			};
 			name = Release;
 		};
+		8EB1833C18BBDC50001CCA94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 0.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8EB1833D18BBDC50001CCA94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 0.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -467,6 +523,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		8EB1833E18BBDC50001CCA94 /* Build configuration list for PBXAggregateTarget "Aggregate Lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8EB1833C18BBDC50001CCA94 /* Debug */,
+				8EB1833D18BBDC50001CCA94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

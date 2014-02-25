@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AFNetworking.h"
+@class AFHTTPRequestOperationManager;
 
 @interface NetworkLib : NSObject
 
