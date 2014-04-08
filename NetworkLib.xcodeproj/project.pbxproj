@@ -70,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E6FBE2B18DEF7C8005DE985 /* NamespacedDependencies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NamespacedDependencies.h; path = Pods/NamespacedDependencies.h; sourceTree = "<group>"; };
 		8E78F56A18A68F5F0014BC5B /* libNetworkLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNetworkLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E78F56D18A68F5F0014BC5B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8E78F57118A68F5F0014BC5B /* NetworkLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetworkLib-Prefix.pch"; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		8E78F56118A68F5F0014BC5B = {
 			isa = PBXGroup;
 			children = (
+				8E6FBE2B18DEF7C8005DE985 /* NamespacedDependencies.h */,
 				8E78F56F18A68F5F0014BC5B /* NetworkLib */,
 				8E78F58318A68F5F0014BC5B /* NetworkLibTests */,
 				8E78F56C18A68F5F0014BC5B /* Frameworks */,
@@ -225,7 +227,7 @@
 		8E78F56218A68F5F0014BC5B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Sigmapoint;
 			};
 			buildConfigurationList = 8E78F56518A68F5F0014BC5B /* Build configuration list for PBXProject "NetworkLib" */;
@@ -300,7 +302,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "xcodebuild -workspace NetworkLib.xcworkspace -scheme NetworkLib -sdk iphonesimulator -configuration Debug\nxcodebuild -workspace NetworkLib.xcworkspace -scheme NetworkLib -sdk iphoneos -configuration Debug\n\n# make a new output folder\nmkdir -p ${TARGET_BUILD_DIR}/../NetworkLib\n\n# combine lib files for various platforms into one\nlipo -create \"${TARGET_BUILD_DIR}/../Debug-iphoneos/libNetworkLib.a\" \"${TARGET_BUILD_DIR}/../Debug-iphonesimulator/libNetworkLib.a\" -output \"${TARGET_BUILD_DIR}/../NetworkLib/libNetworkLib-debug-${CURRENT_PROJECT_VERSION}.a\"";
+			shellScript = "xcodebuild -workspace NetworkLib.xcworkspace -scheme NetworkLib -sdk iphonesimulator -configuration Debug\nxcodebuild -workspace NetworkLib.xcworkspace -scheme NetworkLib -sdk iphoneos -configuration Debug\n\n# make a new output folder\nmkdir -p ${TARGET_BUILD_DIR}/../NetworkLib\n\n# combine lib files for various platforms into one\nlipo -create \"${TARGET_BUILD_DIR}/../Debug-iphoneos/libNetworkLib.a\" \"${TARGET_BUILD_DIR}/../Debug-iphonesimulator/libNetworkLib.a\" -output \"${TARGET_BUILD_DIR}/../NetworkLib/libNetworkLib-debug-${CURRENT_PROJECT_VERSION}.a\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -347,7 +349,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -376,7 +377,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -385,7 +386,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -408,6 +408,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -420,6 +421,7 @@
 				DSTROOT = /tmp/NetworkLib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NetworkLib/NetworkLib-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -433,6 +435,7 @@
 				DSTROOT = /tmp/NetworkLib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NetworkLib/NetworkLib-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -443,7 +446,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE5F3C3A183E4296ACC01BC4 /* Pods-NetworkLib.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -464,7 +466,6 @@
 		8E78F59218A68F5F0014BC5B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -482,6 +483,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 0.1;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -490,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 0.1;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -531,6 +534,7 @@
 				8EB1833D18BBDC50001CCA94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

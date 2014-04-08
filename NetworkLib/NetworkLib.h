@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import "AFNetworking.h"
 
-@class AFHTTPRequestOperationManager;
+@class AFHTTPRequestOperation;
 
 @interface NetworkLib : NSObject
 
-- (void)getGithubReposForUser:(NSString*)user withSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
+- (AFHTTPRequestOperation*)getGithubReposForUser:(NSString*)user withSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 @end
